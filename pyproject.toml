@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "svg-vision-reflection"
+version = "0.1.0"
+description = "Generate and iteratively refine SVG images with LLM vision reflection."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "BSD-3-Clause" }
+dependencies = [
+    "openai>=1.0",
+    "cairosvg>=2.7",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0",
+    "pytest-mock>=3.14",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["svg_vision_reflection*"]
