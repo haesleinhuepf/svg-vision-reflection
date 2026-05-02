@@ -16,6 +16,8 @@ svg, history = generate_svg("a penguin riding a bike shown from the side", num_r
 
 ![](docs/images/demo.gif)
 
+Inspired by [Simon Willison’s experiments](https://simonwillison.net/2025/Jun/6/six-months-in-llms/).
+
 ## Installation
 
 ```bash
