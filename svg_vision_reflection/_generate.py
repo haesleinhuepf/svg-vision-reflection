@@ -102,10 +102,15 @@ def generate_svg(
                             "type": "text",
                             "text": (
                                 f"The SVG below should show: {prompt}.\n"
-                                "The rendered PNG is attached so you can see how it looks. "
-                                "If the image does not accurately represent the description, "
-                                "please refine the SVG. "
-                                "Return ONLY the improved SVG code with no explanation or markdown."
+                                "The rendered PNG is attached so you can see how it looks.\n\n"
+                                "Please do the following in order:\n"
+                                "1. Describe what you see in the rendered image.\n"
+                                "2. List specific feedback and potential improvements "
+                                "comparing the image to the description.\n"
+                                "3. Based on your analysis above, please refine the SVG "
+                                "so that it better matches the description. "
+                                "Output the improved SVG code last, with no additional "
+                                "explanation after it."
                             ),
                         },
                         {
