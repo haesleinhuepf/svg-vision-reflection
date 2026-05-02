@@ -4,10 +4,24 @@ A small Python library that generates SVG images from text prompts using an
 OpenAI-compatible LLM, and iteratively refines them by feeding the rendered
 PNG back to the model (vision-based reflection).
 
+Usage:
+```
+svg = generate_svg("a penguin riding a bike shown from the side")
+```
+
+Or, for fun and visualizing the refinement history ([read full example](demo.ipynb)):
+```
+svg, history = generate_svg("a penguin riding a bike shown from the side", num_reflections=20, report_history=True)
+```
+
+![](docs/images/demo.gif)
+
 ## Installation
 
 ```bash
-pip install svg-vision-reflection
+git clone https://github.com/haesleinhuepf/svg-vision-reflection
+cd svg-vision-reflection
+pip install -e .
 ```
 
 > **Requirements:** an OpenAI API key in the `OPENAI_API_KEY` environment
@@ -25,25 +39,6 @@ print(svg)  # raw SVG string
 # Save to file
 with open("output.svg", "w") as f:
     f.write(svg)
-```
-
-### Return the reflection history
-
-Pass `report_history=True` to also get the intermediate SVG/PNG pairs
-produced after each reflection step:
-
-```python
-svg, history = generate_svg(
-    "a red bicycle",
-    num_reflections=3,
-    report_history=True,
-)
-
-for i, (intermediate_svg, png_bytes) in enumerate(history):
-    with open(f"step_{i}.svg", "w") as f:
-        f.write(intermediate_svg)
-    with open(f"step_{i}.png", "wb") as f:
-        f.write(png_bytes)
 ```
 
 ### API
@@ -74,3 +69,4 @@ generate_svg(
    - Both the SVG source *and* the PNG image are sent back to the model with
      a request to improve the SVG if it doesn't match the description.
 3. The final SVG string is returned.
+

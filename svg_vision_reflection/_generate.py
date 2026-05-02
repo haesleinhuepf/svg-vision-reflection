@@ -87,7 +87,7 @@ def generate_svg(
     # ------------------------------------------------------------------
     for _ in range(num_reflections):
         # Render the current SVG to PNG so the model can *see* it
-        png_bytes = cairosvg.svg2png(bytestring=svg_content.encode("utf-8"))
+        png_bytes = cairosvg.svg2png(bytestring=svg_content.encode("utf-8"), background_color="white")
         png_base64 = base64.b64encode(png_bytes).decode("utf-8")
 
         history.append((svg_content, png_bytes))
