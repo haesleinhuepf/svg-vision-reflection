@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+svg_vision_reflection/__init__.py
+svg_vision_reflection/_generate.py
+svg_vision_reflection.egg-info/PKG-INFO
+svg_vision_reflection.egg-info/SOURCES.txt
+svg_vision_reflection.egg-info/dependency_links.txt
+svg_vision_reflection.egg-info/requires.txt
+svg_vision_reflection.egg-info/top_level.txt
+tests/test_generate_svg.py
